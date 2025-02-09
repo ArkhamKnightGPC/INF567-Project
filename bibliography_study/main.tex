@@ -1,0 +1,158 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\usepackage{preamble}
+\usepackage[titlepage,fancysections,pagenumber]{polytechnique}
+
+\title{Bibliography study: Visible Light Communication(VLC) and Light Fidelity(LiFi)}
+\subtitle{INF567: Wireless Networks}
+\author{Gabriel Pereira de Carvalho}
+
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\newpage
+	
+	\section{LiFi White Paper}
+	\begin{tcolorbox}
+		\centering \textbf{LiFi White Paper}
+		\begin{itemize}
+			\item \textbf{Title:} LiFi Illuminated: Unleashing the Potential of Light-Based Connectivity
+			\item \textbf{Link:} \href{https://www.ashb.com/wp-content/uploads/2024/07/IS-2024-080.pdf}{ashb.com/wp-content/uploads/2024/07/IS-2024-080.pdf}
+		\end{itemize}
+	\end{tcolorbox}
+	
+	Today, the processing power of edge devices (embedded systems on the frontier between computer networks and the physical world) allows them to perform more and more tasks independently. The networks connecting these devices (Internet of Things or IoT) has experienced tremendous growth.
+	
+	However, the technologies traditionally used for these networks (Wi-Fi or 4G) are encountering problems of:
+	
+	\begin{itemize}
+		\item \textbf{Spectrum crunch and Interference issues}: congestion due to the limited bandwidth available to all devices sharing the medium.
+		\item \textbf{Data security concerns}:  since light cannot penetrate walls, it's much harder for potential hackers or unauthorized individuals to access the LiFi.
+		network.
+	\end{itemize}
+	
+	The visible light spectrum used by Visible Light Communication(VLC) technologies is approximately 10000 times larger than the entire radio frequency spectrum. This means less congestion, less interference and speeds higher than what is achievable with radio frequencies.  Lab tests have achieved data rates of up to 224 gigabits per second.
+	
+	The messages are transmitted using rapid fluctuations in LED light intensity (so fast they are invisible to the human eye). The switch speed of this light source given by the paper is \textbf{millions of times per second}!
+	
+	The input current modulation is the key aspect in transmission. The technique used is very simple, the amplitude of the input current is used directly to represent  (Intensity Modulation Direct Detection or IM/DD).
+	
+	\section{The Technology of Lifi: A Brief Introduction}
+	\begin{tcolorbox}
+		\begin{itemize}
+			\item \textbf{Title:} The Technology of Lifi: A Brief Introduction (IOP Conference Series 2018)
+			\item \textbf{Authors:} E. Ramadhani, G.P. Mahardika
+			\item \textbf{Link:} \href{https://iopscience.iop.org/article/10.1088/1757-899X/325/1/012013/pdf}{iopscience.iop.org/article/10.1088/1757-899X/325/1/012013/pdf}
+		\end{itemize}
+	\end{tcolorbox}
+	
+	\textbf{Visible Light Communication (VLC)} is the generic name for any technology that uses light emitting diodes (LEDs) for wireless communication. The idea is to light as a medium for wireless communication (mostly visible but also infrared and even ultraviolet). \textbf{Light Fidelity (LiFi)} is a VLC based technology with a specific transmitter/receiver architecture and allowing devices to connect to the internet using light as a medium.
+	
+	 \begin{figure}[h]
+	 	\centering
+	 	\includegraphics{images/lifiArchitecture.png}
+	 	\caption{Concept diagram of LiFi communication}
+	 \end{figure}
+	
+	In LiFi, a lamp driver receives packets from the internet, encodes this information for transmission over light and sends it to a LED lamp. This lamp transmits the packets to a photo detector that sends the captured data to a specialized hardware for amplification/decoding. The decoded packets are then sent to the user in his device. A LiFi transceiver device can handle both transmission and reception of data.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{images/lifiHomeNetworks.png}
+		\caption{Unidirectional(a) and bidirectional(b) Lifi home networks}
+	\end{figure}
+	
+	\section{Towards Embedded Visible Light Communication Robust to Dynamic Ambient Light}
+	\begin{tcolorbox}
+		\begin{itemize}
+			\item \textbf{Title:} Towards Embedded Visible Light Communication Robust to Dynamic Ambient Light
+			\item \textbf{Authors:} Shengrong Yin, Omprakash Gnawali
+			\item \textbf{Link:} \href{https://ieeexplore.ieee.org/document/7842344}{ieeexplore.ieee.org/document/7842344}
+		\end{itemize}
+	\end{tcolorbox}
+	
+	In the first paper, we saw that the traditional modulation strategy in LiFi is to use rapid fluctuations in LED light intensity. This is also called \textbf{On-Off Keying} and it is very vulnerable to ambient light interference in real world conditions (variable ambient light, variable distance between transmitter and receiver).
+	
+	This paper proposes an alternative technique called \textbf{Binary Frequency Shift Keying (BFSK)} that encodes the 0/1 bits using two diffent frequencies. 
+	
+	
+	In the receiver they use a filter with an digital potentiometer(resistance value controlled by an adaptive cancellation algorithm). For ambient light intensities up to $200 lux$ where a traditional approach failed to decode the transmitted symbols, the authors got a $0\%$ error rate.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{images/potentiometer.png}
+		\caption{Potentiometer resistance reponse to ambient light variation}
+	\end{figure}
+	
+	\section{Designing Embedded Visible Light Communication System Adaptable to Fluctuations in Light Intensity}
+	\begin{tcolorbox}
+		\begin{itemize}
+			\item \textbf{Title:} Designing Embedded Visible Light Communication System Adaptable to Fluctuations in Light Intensity
+			\item \textbf{Authors:} Kashi Nath Datta, Pradipta Das, Mousumi Saha, Sujoy Saha (National Institute of Technology Durgapur)
+			\item \textbf{Link:} \href{https://dl.acm.org/doi/10.1145/3369740.3372758}{dl.acm.org/doi/10.1145/3369740.3372758}
+		\end{itemize}
+	\end{tcolorbox}
+	
+	This paper describes a receiver circuit to handle two problems: ambient light noise cancellation, and LED intensity variation(flickering). 
+
+	The circuit has two main blocks: a DC voltage extraction block and a differential amplifier. The details of these blocks are not specified, but they can probably be \href{https://electronics.stackexchange.com/questions/188487/circuit-to-remove-dc-and-extract-ac-signal}{implemented with capacitors and commercial operational amplifiers}.
+	
+	The authors measured a consistent near-constant output for ambient light ranging from $43lux$ to $287lux$.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{images/ambientLightCancellationCircuit.png}
+		\caption{Ambient Light Cancellation Circuit}
+	\end{figure}
+	
+	\section{Ambient LED Light Noise Reduction Using Adaptive Differential Equalization in Li-Fi Wireless Link}
+	\begin{tcolorbox}
+		\begin{itemize}
+			\item \textbf{Title:} Ambient LED Light Noise Reduction Using Adaptive Differential Equalization in Li-Fi Wireless Link
+			\item \textbf{Authors:} Yong-Yuk Won, Sang Min Yoon, Dongsun Seo
+			\item \textbf{Link:} \href{https://pmc.ncbi.nlm.nih.gov/articles/PMC7913930/pdf/sensors-21-01060.pdf}{pmc.ncbi.nlm.nih.gov/articles/PMC7913930/pdf/sensors-21-01060.pdf}
+		\end{itemize}
+	\end{tcolorbox}
+	
+	This paper proposes a technique called \textbf{Adaptive Differential Equalization (ADE)} from demodulation. The goal is again to minimize ambient light interference and shot noise from the receiving photodiode.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{images/ADEschema.png}
+		\caption{ADE schema}
+	\end{figure}
+	
+	I think this paper is interesting because the demodulation technique is software based instead of hardware based like the previous papers. The mathematics does require some deep study though.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{images/ADEresult.png}
+		\caption{Signal before and after ADE}
+	\end{figure}
+	
+	\section{Imperceptible Flicker Noise Reduction Using Pseudo-Flicker Weight Functionalized Derivative Equalization in Light-Fidelity Transmission Link}
+	Authors: 
+	Link: https://www.mdpi.com/1424-8220/22/22/8857
+	\begin{tcolorbox}
+	\begin{itemize}
+		\item \textbf{Title:} Imperceptible Flicker Noise Reduction Using Pseudo-Flicker Weight Functionalized Derivative Equalization in Light-Fidelity Transmission Link
+		\item \textbf{Authors:} Yong-Yuk Won and Jeungmo Kang
+		\item \textbf{Link:} \href{https://www.mdpi.com/1424-8220/22/22/8857}{mdpi.com/1424-8220/22/22/8857}
+	\end{itemize}
+	\end{tcolorbox}
+	
+	One of authors on this paper was also an author in the previous one. So the approach here is also very mathematical. But it is focused on LED flickering and not on ambient light noise. The SNR gain achieved was $2 dB$ so for the project prototype this is probably not a priority but it is an interesting paper to discuss in the report.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{images/flickering.png}
+		\caption{Cancellation of flicker noise on received signal}
+	\end{figure}
+	
+	
+
+\end{document}
