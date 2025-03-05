@@ -20,7 +20,7 @@ We consider an IM/DD MIMO VLC system with multiple *Access Points(APs)*, multipl
 
 ## Modelisation: Indoor VLC wiretap system
 
-As in [[1]](#1), consider a room os size $L \times W \times H$. The room is equipped with $M$ APs that are located at its ceiling. The APs act as single transmitters, sending simultaneously $N$ sets of confidential messages to $N$ AUs in the presence of $K$ EDs.
+As in [[1]](#1), we consider a room os size $L \times W \times H$. The room is equipped with $M$ APs that are located at its ceiling. The APs act as single transmitters, sending simultaneously $N$ sets of confidential messages to $N$ AUs in the presence of $K$ EDs.
 
 For all $i \in \{1,..,N\}$, the $i$th AU is equipped with $N_i \in \mathbb{N}$ photodiodes and For all $j \in \{1,..,K\}$, the $j$th ED is equipped with $K_j \in \mathbb{N}$ photodiodes.
 
