@@ -12,7 +12,7 @@ eta = 1  # Current-to-light conversion efficiency (W/A)
 R = 1  # Photodetector responsivity (A/W)
 T = 1  # Transimpedance gain (V/A)
 A_PD = 1  # Photodiode physical area (m^2)
-sigma2 = math.pow(10, -9.833) # Noise power (dBm)
+sigma2 = math.pow(10, -9.833) # Noise power
 
 def channel_gain(tx, rx):
     """Compute Lambertian line-of-sight channel gain."""
@@ -73,7 +73,7 @@ def plot_snr(N, AP_positions, w, AU_position, AED_position):
 
     plt.figure(figsize=(5, 5))
     plt.contourf(X, Y, snr_grid.T, levels=20, cmap='jet')
-    plt.colorbar(label="SNR (dBm)")
+    plt.colorbar(label="SNR")
     
     # Plot only UE and AED positions
     plt.scatter(*AU_position[:2], color='yellow', marker='o', label="AU", s=100)
