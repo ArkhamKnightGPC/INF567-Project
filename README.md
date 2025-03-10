@@ -32,7 +32,7 @@ Our goal is to determine the beamforming vector $w = [w_1,w_2,...,w_N]^T \in \ma
 
 The traditional zero-forcing beamformer for a single AED $AE_1$, where the PEDs are ignored, can be obtained by projecting the AU's channel onto the null space of the AED (making the SNR at the AED equal to zero).
 
-![oneAED](oneAED.PNG)
+![oneAED simulation](oneAED.PNG)
 
 ## References
 
