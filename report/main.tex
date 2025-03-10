@@ -76,15 +76,10 @@
 		\caption{Geometrical parameters in the generalized VLC model \cite{Oxford2021}}
 	\end{figure}
 	
-	For each device, we also introduce the channel gain vector $h_k = [h_{1,k}, h_{2,k}, ... , h_{N,k}]^T \in \mathbb{R}^N$ which models the effect of the channel on the signal during propagation. Reflections are ignored and only the direct path from source to receiver (LoS path) is considered. In \cite{Oxford2021} many physical constants are introduced, we will simply use $\mathbb{C}$ to simplify the notation. We have
-	\begin{align}
-		h_{i,k} =
-		\begin{cases}
-			\mathbb{C}\frac{\cos(\phi_{i,k})}{\sin(\Psi)^2}\cos(\psi_{i,k}) \qquad &\text{for $|\psi_{i,k}| < \Psi$} \\
-			0 \qquad &\text{for $|\psi_{i,k}| > \Psi$}
-		\end{cases} 
-	\end{align}
-	where $\Psi$ denote the photodiode's field of view. As in \cite{Oxford2021}, we will take $\Psi = 90^\circ \implies \sin(\Psi)^2 = 1$.
+	For each device, we also introduce the channel gain vector $h_k = [h_{1,k}, h_{2,k}, ... , h_{N,k}]^T \in \mathbb{R}^N$ which models the effect of the channel on the signal during propagation. Reflections are ignored and only the direct path from source to receiver (LoS path) is considered. In \cite{Oxford2021} many physical constants are introduced, in the numerical simulation section most are taken as equal to $1$. To simplify the notation, let's omit these constants right from the start. We have
+	\begin{equation}
+		h_{i,k} = \cos(\phi_{i,k})\cos(\psi_{i,k})
+	\end{equation}
 	
 	The modulated signal $x_i(t)$ is related to the message $s(t)$ by the relation
 	\begin{equation}
