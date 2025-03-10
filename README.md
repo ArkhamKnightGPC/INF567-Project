@@ -13,7 +13,7 @@ Project developed for the course INF567: Wireless Networks at Ecole polytechniqu
 
 The literature review performed on [[1]](#1) was the basis for the bibliography study performed on this project. It is important to highlight that VLC systems are not intended to replace RF technologies. VLC systems are more efficient in indoor environments and are complementary to RF technologies.
 
-We consider an IM/DD MIMO VLC system with multiple *Access Points(APs)*, a single *Authorized Users(AUs)* and multiple *Eavesdropping devices(active AEDs or passive PEDs)*.
+We consider an IM/DD MIMO VLC system with multiple *Access Points(APs)*, a single *Authorized User(AU)* and multiple *Eavesdropping devices(active AEDs or passive PEDs)*.
 
 - **IM** (intensity modulation) refers to the method of encoding information by varying the intensity of the light source, which is then detected by a receiver.
 
