@@ -26,13 +26,21 @@ As in [[1]](#1), we consider a room os size $L \times W \times H$. The room is e
 ![modelisation](modelisation.PNG)
 
 
-## Beamforming
+## Beamforming with one AED
 
 Our goal is to determine the beamforming vector $w = [w_1,w_2,...,w_N]^T \in \mathbb{R}^N$ where $w_i$ is a weight for the signal from the $i$-th transmitter.
 
 The traditional zero-forcing beamformer for a single AED $AE_1$, where the PEDs are ignored, can be obtained by projecting the AU's channel onto the null space of the AED (making the SNR at the AED equal to zero).
 
-![oneAED simulation](oneAED.PNG)
+It is important to notice that while all vectors in the AED's null space will provide a zero SNR at the AED, we also want to maximize the AED at the AU. To do this we project the AU's channel gain on the null space and take a beamforming vector in that direction (to maximize inner product used to compute the SNR).
+
+![oneAED](oneAED.PNG)
+
+## Beamforming with multiple AEDs
+
+We can extend the solution for one AED to multiple AEDs. To do this, in the null space computation we stack the AEDs' channel gain vectors and compute a common null space for all AEDs. Then, we take the projection of the AU's channel gain just like in the case for one single AED.
+
+![multipleAED](multipleAED.PNG)
 
 ## References
 
