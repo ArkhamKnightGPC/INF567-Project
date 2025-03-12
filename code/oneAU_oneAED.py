@@ -15,10 +15,6 @@ A_PD = 1  # Photodiode physical area (m^2)
 sigma2 = math.pow(10, -9.833) # Noise power
 
 def channel_gain(tx, rx):
-    """Compute Lambertian line-of-sight channel gain."""
-    import numpy as np
-
-def channel_gain(tx, rx):
     """
     Compute LoS channel gain transmitter i and receiver k.
     """
@@ -52,11 +48,15 @@ def compute_snr(x, y, AP_positions, w):
     snr = (IDC**2 * (w.T @ h_k) ** 2) / sigma2
     return snr
 
-def compute_beamforming_vector(AP_positions, AED_position):
+def compute_beamforming_vector(AP_positions, AU_position, AED_position):
     """Compute the optimal beamforming vector w."""
     null_basis = compute_null_space(AP_positions, AED_position)
-    w = null_basis[:, 0]  # Take the first basis vector (arbitrary choice)
-    return w / np.linalg.norm(w)  # Normalize w
+    w = null_basis[:, 0]  # Take the first basis vector (IMPORTANT: every base will zero SNR at AED, we need the one that maximizes SNR at the AU)
+    h_AU = np.array([channel_gain(AP, AU_position) for AP in AP_positions])
+
+    # Project h_AU onto the null space basis
+    w_opt = null_basis @ (null_basis.T @ h_AU)
+    return w_opt / np.linalg.norm(w_opt) # Normalize w
 
 def plot_snr(N, AP_positions, w, AU_position, AED_position):
     """Plot the SNR heatmap with AU and AED positions."""
@@ -88,12 +88,13 @@ def plot_snr(N, AP_positions, w, AU_position, AED_position):
 if __name__ == "__main__":
     N = 4
     AP_positions = generate_APs(N)
-    AU_positions = np.array([0.5, 0.5, 0])  # Center of the grid
-    AED_positions = np.array([0.3, 0.3, 0])  # AED position
+    AU_position = np.array([0.5, 0.5, 0])  # Center of the grid
+    AED_position = np.array([0.3, 0.3, 0])  # AED position
 
     # Compute beamforming vector
-    w = compute_beamforming_vector(AP_positions, AED_positions)
+    w = compute_beamforming_vector(AP_positions, AU_position, AED_position)
+    w = w/np.linalg.norm(w)
     print(f"Beamforming vector = {w}")
 
     # Plot SNR distribution
-    plot_snr(N, AP_positions, w, AU_positions, AED_positions)
+    plot_snr(N, AP_positions, w, AU_position, AED_position)
