@@ -16,7 +16,7 @@ def generate_APs(N):
 def plot_APs(N):
     """Plot for the report!"""
     points = generate_APs(N)
-    x_vals, y_vals = zip(*points)  # Unpack points
+    x_vals, y_vals, _ = zip(*points)  # Unpack points
 
     plt.figure(figsize=(5, 5))
     plt.scatter(x_vals, y_vals, color='blue', marker='o', label=f"AP")
@@ -35,5 +35,5 @@ def plot_APs(N):
     plt.show()
 
 if __name__ == "__main__":
-    N = 4
+    N = 16
     plot_APs(N)

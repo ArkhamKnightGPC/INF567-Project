@@ -86,7 +86,7 @@ def plot_snr(N, AP_positions, w, AU_position, AED_position):
     plt.show()
 
 if __name__ == "__main__":
-    N = 4
+    N = 16
     AP_positions = generate_APs(N)
     AU_position = np.array([0.5, 0.5, 0])  # Center of the grid
     AED_position = np.array([0.3, 0.3, 0])  # AED position
